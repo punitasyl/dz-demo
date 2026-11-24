@@ -1,5 +1,7 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import BaseModel, Field
+from fastapi import Depends
+from typing_extensions import Annotated
 
 class AppSettings(BaseModel):
     app_name: str = "Board API"
@@ -20,3 +22,9 @@ class Settings(BaseSettings):
     @property
     def db(self) -> DatabaseSettings:
         return DatabaseSettings(url=self.database_url)
+
+def get_settings() -> Settings:
+    return Settings() #type: ignore[call-arg]
+
+
+SettingsDeps =  Annotated[Settings, Depends(get_settings)]

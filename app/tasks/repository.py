@@ -11,7 +11,6 @@ class TaskRepository:
         return task_id
 
 def get_task_repository():
-    print("get_task_repository called")
     return TaskRepository()
 
 TaskRepositoryDeps =  Annotated[TaskRepository, Depends(get_task_repository)]

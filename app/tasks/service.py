@@ -8,7 +8,6 @@ from .repository import TaskRepository, TaskRepositoryDeps
 
 
 def get_task_service(repo: TaskRepositoryDeps):
-     print("get_task_service called")
      return TaskService(repo)
 
 class TaskService():

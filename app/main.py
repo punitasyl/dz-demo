@@ -1,7 +1,7 @@
 from fastapi import Body, FastAPI
 
-from projects.routes import router as project_routes
-from tasks.routes import router as task_routes
+from app.projects.routes import router as project_routes
+from app.tasks.routes import router as task_routes
 
 app = FastAPI(
     title="Kanban Board API",
